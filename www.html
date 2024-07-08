@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>X-FLASH MESSENGER - Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include Google OAuth library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Include GitHub OAuth library -->
+    <script src="https://cdn.jsdelivr.net/npm/github-login/github-login.min.js"></script>
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<header id="header">
+    <h1>X-FLASH MESSENGER - Login</h1>
+    <p>Ready to experience the thrill of technology? Sign in to X-Flash Messenger and continue your journey!<br />
+        Brought to you by <a href="https://drewgalowaydev.github.io/robinsoncv/" style="color: teal;">Robinson Otochi</a>.</p>
+</header>
+
+<!-- Sign-up Link -->
+<div id="signup-link">
+    <p>Don't have an account? <a href="index.html">Sign up here</a>.</p>
+</div>
+
+<!-- Signup Form -->
+<form id="signup-form" method="post" action="#">
+    
+    <input type="text" name="username" id="username" placeholder="Username" style="width:100%;">    
+  
+    <input type="password" name="password" id="password" placeholder="Password">
+    <input type="submit" value="Sign in" style="width:200px;margin-left:70px;">
+</form>
+
+
+
+<div id="oauth-buttons" class="oauth-container">
+    <button class="oauth-button google" onclick="signInWithGoogle()">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Sign in with Google">
+        <span style="color:black;">Sign in with Google</span>
+    </button>
+    
+    <button class="oauth-button github" onclick="signInWithGitHub()">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Sign in with GitHub">
+        <span style="color:black;">Sign in with GitHub</span>
+    </button>
+</div>
+
+
+
+<!-- Footer -->
+<footer id="footer">
+      <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        
+        <li><a href="#" class="icon brands fa-youtube"><span class="label">youtube</span></a></li>
+        
+        <li><a href="#" class="icon brands fa-facebook"><span class="label">Fb</span></a></li>
+        
+        <li><a href="#" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
+        
+        <li><a href="#" class="icon brands fa-whatsapp"><span class="label">whatsapp</span></a></li>
+        
+        
+        <li><a href="#" class="icon brands fa-telegram"><span class="label">Email</span></a></li>
+        
+        
+        <li><a href="#" class="icon brands fa-tiktok"><span class="label">tiktok</span></a></li>
+        
+    </ul>
+    <ul class="copyright">
+        <li>&copy; drewgallowaydev22™.</li><li>Credits: <a href="https://drewgalowaydev.github.io/robinsoncv/">@Robin🎬drewgalowaydev22™</a></li>
+    </ul>
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Function to handle Google sign-in
+    function signInWithGoogle() {
+        // Replace with your Google client ID
+        var clientId = 'YOUR_GOOGLE_CLIENT_ID';
+        gapi.auth2.authorize({
+            client_id: clientId,
+            scope: 'email profile openid',
+            response_type: 'token id_token'
+        }, function(response) {
+            console.log(response);
+            // Handle the response, e.g., send tokens to your backend
+        });
+    }
+
+    // Function to handle GitHub sign-in
+    function signInWithGitHub() {
+        // Replace with your GitHub client ID
+        var clientId = 'YOUR_GITHUB_CLIENT_ID';
+        var githubLogin = new GitHubLogin({
+            client_id: clientId,
+            redirect_uri: 'https://your.redirect.uri/callback',
+            scope: 'user:email'
+        });
+        githubLogin.open();
+    }
+    
+    
+   
+</script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
